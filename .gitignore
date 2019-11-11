@@ -103,4 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 /.idea
-/log
+/cifar/log
+/cifar/default
+*.pth
+
+cifar/log/default/train_log

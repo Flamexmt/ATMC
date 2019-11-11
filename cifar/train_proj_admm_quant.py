@@ -262,7 +262,7 @@ if __name__ == '__main__':
 
             if epoch in decreasing_lr:
                 optimizer.param_groups[0]['lr'] *= 0.1
-
+            print('trainings')
             message = model_train_proj_prune_admm_quant([model, modelz, modelu], epoch, train_loader, optimizer,
                                                         dfn_algo=defend_algo, dfn_eps=args.defend_eps,
                                                         log_interval=args.log_interval, iscuda=args.cuda,

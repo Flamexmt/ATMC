@@ -168,8 +168,10 @@ def model_train_proj_prune_admm_quant(models, epoch, data_loader, optimizer, \
                 for i in range(len(weight_bits)):
                     total += weight_bits[i] * nnz[i]
                 print("\t model size {}".format(total))
-        if batch_idx == 1000:
+        if batch_idx >= 10:
+            print('it is so big')
             break
+        print(batch_idx)
     # prune_tk(model)
     if prune_tk is not None:
         if weight_bits is not None:
@@ -424,13 +426,14 @@ def acc_test_call(output, target, type="vanilla"):
 
 def model_test(model, epoch, data_loader, atk_algo, atk_eps, iscuda=False, adv_iter=16, criterion=F.cross_entropy, modelType="vanilla"):
     std = torch.tensor([1., 1., 1.])
-
     model.eval()
     test_loss, correct = 0, 0
     testLossAdv, correctAdv = 0, 0
     adv_l2dist, adv_linfdist = 0, 0
     nb_data = 0
     for data, target in data_loader:
+        if nb_data>100:
+            break
         indx_target = target.clone()
         data_len = data.shape[0]
         nb_data += data_len
