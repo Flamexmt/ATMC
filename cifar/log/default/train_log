@@ -1,0 +1,36 @@
+Setting GPU: ['0']
+Creating folder D:/study/model-compression/git-hub/ATMC/cifar\log/resnet/pretrain
+=================FLAGS==================
+wd: 0.0001
+batch_size: 8
+epochs: 1
+lr: 0.05
+gpu: ['0']
+ngpu: 1
+seed: 117
+log_interval: 20
+test_interval: 1
+loaddir: D:/study/model-compression/git-hub/ATMC/cifar\log/default
+savedir: D:/study/model-compression/git-hub/ATMC/cifar\log/resnet/pretrain
+data_root: [cifar/data/dir]
+decreasing_lr: 80,120,150
+attack_algo: pgd
+attack_eps: 4.0
+defend_algo: pgd
+defend_eps: 4.0
+defend_iter: 7
+raw_train: True
+abc_special: False
+abc_initialize: False
+lr_special: False
+lr_initialize: False
+model_name: None
+save_model_name: cifar10_res_pgd_raw.pth
+prune_algo: None
+prune_ratio: 0.1
+quantize_algo: None
+quantize_bits: 32
+prune_interval: 1
+quant_interval: 5
+========================================
+decreasing_lr: [80, 120, 150]

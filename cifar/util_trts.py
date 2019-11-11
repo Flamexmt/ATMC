@@ -168,6 +168,8 @@ def model_train_proj_prune_admm_quant(models, epoch, data_loader, optimizer, \
                 for i in range(len(weight_bits)):
                     total += weight_bits[i] * nnz[i]
                 print("\t model size {}".format(total))
+        if batch_idx == 1000:
+            break
     # prune_tk(model)
     if prune_tk is not None:
         if weight_bits is not None:
@@ -234,7 +236,8 @@ def model_train_admm(models, epoch, data_loader, optimizer, \
             print('Train Epoch: {} [{}/{}] Loss: {:.5f} Acc: {:.4f} lr: {:.2e}'.format(
                 epoch, batch_idx * len(data), len(data_loader.dataset), loss_ave/nb_data, acc, optimizer.param_groups[0]['lr']
             ))
-    
+
+
     return model
 
 def model_train_admm_ms(models, epoch, data_loader, optimizer, \

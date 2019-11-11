@@ -7,7 +7,6 @@ import numpy as np
 import hashlib
 import torch
 
-from IPython import embed
 
 class Logger(object):
     def __init__(self):
